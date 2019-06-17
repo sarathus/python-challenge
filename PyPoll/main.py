@@ -2,8 +2,6 @@
 # Created By Sarath K - 2019.06.13
 
 # file is election_data.csv
-# row[0] = Voter id
-
 
 import os
 import csv
@@ -38,23 +36,18 @@ with open(election_csv, 'r') as csvfile:
             vote_count.append(1)
         
 
-  
-# Find which candidate won the election
-            
-
-
 print("\nElection Results")
 print("----------------------")
 print(f"Total Votes: {votes}")
 print("----------------------")
 for i in range(len(candidate_count)):
     print(f"{candidate_count[i]}: {int(vote_count[i]*100/votes)}% ({vote_count[i]})")
-    if int(win) > int(vote_count(i)):
-        win = 0
-    else:
-        win = candidate_count(i)
+# Find which candidate won the election
+    if vote_count[i] > vote_count[i-1]:
+        win = vote_count[i]
+        name= candidate_count[i]
 print("----------------------")
-print(f"Winner: {win}")
+print(f"Winner: {name}")
 print("----------------------")
 
 
