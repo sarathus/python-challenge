@@ -41,7 +41,7 @@ print("----------------------")
 print(f"Total Votes: {votes}")
 print("----------------------")
 for i in range(len(candidate_count)):
-    print(f"{candidate_count[i]}: {int(vote_count[i]*100/votes)}% ({vote_count[i]})")
+    print(f"{candidate_count[i]}: {float('%.4f' % (vote_count[i]*100/votes))}% ({vote_count[i]})")
 # Find which candidate won the election
     if vote_count[i] > vote_count[i-1]:
         win = vote_count[i]
