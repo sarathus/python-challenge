@@ -36,7 +36,7 @@ with open(budget_csv, 'r') as csvfile:
            
     #Average=Total_PandL/months
     Average=tot_monthly_change / (months-1)
-    print(f"{tot_monthly_change}")
+   
 
     print("\nFinancial Analysis")
     print("----------------------")
@@ -46,5 +46,9 @@ with open(budget_csv, 'r') as csvfile:
     print(f"Greatest increase in profit on {Date2} is ${maximum}")
     print(f"Greatest decrease in profit on {Date1} is ${minimum}\n")
 
+text_file = open("pybankoutput.txt", "w")
 
+text_file.write(f"\nFinancial Analysis\n----------------------\nTotal Months: {months}\nTotal: ${Total_PandL}\nAverage: ${Average}\nGreatest increase in profit on {Date2} is ${maximum}\nGreatest decrease in profit on {Date1} is ${minimum}\n")
+
+text_file.close()
         
