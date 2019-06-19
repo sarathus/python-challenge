@@ -35,13 +35,15 @@ with open(election_csv, 'r') as csvfile:
             candidate_count.append(candidate)
             vote_count.append(1)
         
-
+text_file = open("pypolloutput.txt", "w")
 print("\nElection Results")
 print("----------------------")
 print(f"Total Votes: {votes}")
 print("----------------------")
+text_file.write(f"\nElection Results\n----------------------\nTotal Votes: {votes}\n----------------------\n")
 for i in range(len(candidate_count)):
     print(f"{candidate_count[i]}: {float('%.4f' % (vote_count[i]*100/votes))}% ({vote_count[i]})")
+    text_file.write(f"{candidate_count[i]}: {float('%.4f' % (vote_count[i]*100/votes))}% ({vote_count[i]}\n")
 # Find which candidate won the election
     if vote_count[i] > vote_count[i-1]:
         win = vote_count[i]
@@ -49,5 +51,10 @@ for i in range(len(candidate_count)):
 print("----------------------")
 print(f"Winner: {name}")
 print("----------------------")
+text_file.write(f"\n----------------------\nWinner: {name}\n----------------------")
 
+
+
+text_file.close()
+        
 
